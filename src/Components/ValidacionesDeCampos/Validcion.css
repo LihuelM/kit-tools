@@ -1,0 +1,10 @@
+
+.state-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px;
+  padding: 30px;
+  gap: 20px;
+}

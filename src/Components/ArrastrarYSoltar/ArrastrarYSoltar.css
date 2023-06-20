@@ -1,0 +1,22 @@
+.file-uploader {
+  width: 60%;
+  height: 150px;
+  border: 2px dashed #999;
+  border-radius: 5px;
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+  margin: 60px auto;
+}
+
+.file-uploader:hover {
+  border-style: dashed;
+}
+
+.file-uploader:active {
+  border-style: dotted;
+}
+
+.file-uploader input[type="file"] {
+  display: none;
+}
