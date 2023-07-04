@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import './ArrastrarYSoltar.css'; 
+import './ArrastrarYSoltar.css';
 
 function ExcelFileUploader() {
   const [excelFile, setExcelFile] = useState(null);
@@ -10,7 +10,7 @@ function ExcelFileUploader() {
     if (
       file.type === 'application/vnd.ms-excel' ||
       file.type ===
-        'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
     ) {
       setExcelFile(file);
     } else {
@@ -23,13 +23,33 @@ function ExcelFileUploader() {
     fileInputRef.current.click();
   };
 
-  return (
-    <div className='container'>
-      <h1>Carga de Archivos</h1>
-      <span class="animation"></span>
+  const handleDragOver = (event) => {
+    event.preventDefault();
+  };
 
-      <div className="file-uploader">
-        <p>Haga clic en el siguiente enlace para seleccionar un archivo de Excel:</p>
+  const handleDrop = (event) => {
+    event.preventDefault();
+    const file = event.dataTransfer.files[0];
+    if (
+      file.type === 'application/vnd.ms-excel' ||
+      file.type ===
+      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    ) {
+      setExcelFile(file);
+    } else {
+      alert('Por favor, seleccione un archivo de Excel válido.');
+    }
+  };
+
+  return (
+    <div className='container' >
+      <h1>Carga de Archivos</h1>
+      <span className="animation"></span>
+
+      <div className="file-uploader" onDragOver={handleDragOver} onDrop={handleDrop} >
+        <p>
+          Haga clic en el siguiente enlace para seleccionar un archivo de Excel o arrastre y suelte el archivo aquí:
+        </p>
         <p>
           <a href="#" onClick={handleTextClick}>
             Seleccionar archivo
@@ -43,9 +63,7 @@ function ExcelFileUploader() {
         />
         {excelFile && <p>Archivo seleccionado: {excelFile.name}</p>}
       </div>
-
     </div>
-    
   );
 }
 

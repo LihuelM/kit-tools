@@ -5,6 +5,7 @@ import Inicio from './Pages/Inicio';
 import { Validacion } from './Components/ValidacionesDeCampos/Validacion';
 import { DragAndDrop } from './Components/DragAndDrop/DragAndDrop';
 import ExcelFileUploader from './Components/ArrastrarYSoltar/ArrastrarYSoltar';
+import ProgressBar from './Components/ProgressBar/ProgressBar';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <Route exact path='/Validacion' element={<Validacion />} />
             <Route exact path='/DragAndDrop' element={<DragAndDrop />} />
             <Route exact path='/CargarArchivos' element={<ExcelFileUploader />} />
+            <Route exact path='/ProgressBar' element={<ProgressBar />} />
             
           </Routes>
 

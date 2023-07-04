@@ -1,6 +1,7 @@
 import React from 'react';
 import './Inicio.css'; 
 import { Link } from 'react-router-dom';
+import Icon1 from './Firefly Inpaint 20230623153750.png';
 
 function Inicio() {
   return (
@@ -9,7 +10,10 @@ function Inicio() {
       <span class="animation"></span>
 
       <div className="tools-container">
-        <h2 className="tools-title">Herramientas</h2>
+        <div className='titleContainer'>
+          {/* <h2 className="tools-title">Herramientas</h2> */}
+          <img className='iconTools' src={Icon1} alt="iconTools" />
+        </div>
 
         <div className="button-container">
           <button className='button'>
@@ -23,12 +27,13 @@ function Inicio() {
           <button className='button'>
             <Link to={'../CargarArchivos'}>Carga de Archivos</Link>
           </button>
+
+          <button className='button'>
+            <Link to={'../ProgressBar'}>Barra de Progreso</Link>
+          </button>
         </div>
       </div>
 
-      <div className="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-        <div className="progress-bar" style={{ width: '50%' }}></div>
-      </div>
     </div>
   );
 }
