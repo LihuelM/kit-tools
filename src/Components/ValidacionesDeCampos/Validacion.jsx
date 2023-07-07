@@ -5,8 +5,8 @@ import './Validcion.css';
 
 export const Validacion = () => {
   return (
-    <div className='container'>
-      <h1> Vaidaciones con UseState vs ClassState </h1>
+    <div className='container-validaciones'>
+      <h1> Validaciones con UseState vs ClassState </h1>
       <span class="animation"></span>
 
       <div className='state-container'>

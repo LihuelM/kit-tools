@@ -1,5 +1,6 @@
 import React from 'react';
 import { Loading } from './Loading';
+import './Validcion.css';
 
 const SECURITY_CODE = 'paradigma';
 
@@ -19,7 +20,6 @@ class ClassState extends React.Component {
 
         if (this.state.loading) {
             setTimeout(()=> {
-                
                 if(SECURITY_CODE === this.state.value) {
                     this.setState({ error: false, loading: false });
                 } else {
@@ -31,29 +31,32 @@ class ClassState extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='container-classState'>
                 <h2>Eliminar {this.props.name}</h2>
 
-                <p>Por favor, escribe el código de seguridad.</p>
+                <p>Por favor, escribe el código de seguridad para comprobr que quieres eliminar.</p>
 
                 {(this.state.error && !this.state.loading) && (
-                <p>Error: el código es incorrecto.</p>
+                <p className='text-error'>Error: el código es incorrecto.</p>
                 )}
 
                 {this.state.loading && (
                 <Loading />
                 )}
 
-                <input 
-                    placeholder='Codigo de Seguridad'
-                    value={this.state.value}
-                    onChange={(event) => {
-                        this.setState({ value: event.target.value });
-                    }}
-                />
-                <button
-                    onClick={() => this.setState({ loading: true })}
-                >Comprobar</button>
+                <div className='input-button'>
+                    <input 
+                        placeholder='Codigo de Seguridad'
+                        value={this.state.value}
+                        onChange={(event) => {
+                            this.setState({ value: event.target.value });
+                        }}
+                    />
+                    <button
+                        onClick={() => this.setState({ loading: true })}
+                    >Comprobar</button>
+                </div>
+                
             </div>
         );
     }
